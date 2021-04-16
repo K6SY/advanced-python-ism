@@ -1,20 +1,13 @@
-# Environnement virtuel
+# Gestion d'un SBGD MySQL
 
-Les programmes Python utilisent souvent des paquets et modules qui ne font pas partie de la bibliothèque standard. Ils nécessitent aussi, parfois, une version spécifique d'une bibliothèque, par exemple parce qu'un certain bogue a été corrigé ou encore que le programme a été implémenté en utilisant une version obsolète de l'interface de cette bibliothèque.
+L'objectif est de voir comment se conecter à un SGBD Mysql et de créer une base de données et des tables.
 
-Cela signifie qu'il n'est pas toujours possible, pour une installation unique de Python, de couvrir tous les besoins de toutes les applications. Basiquement, si une application A dépend de la version 1.0 d'un module et qu'une application B dépend de la version 2.0, ces dépendances entrent en conflit et installer la version 1.0 ou 2.0 laisse une des deux applications incapable de fonctionner.
+* Le fichier **common.py** est un module contenant des fonctions permettant de faire des opérations sur une base mysql
+* Le fichier **database-admin.py** est le programme principal à exécuter pour manager votre database 
 
-Pour plus de détails: [Python Website](https://docs.python.org/fr/3/tutorial/venv.html)
+## Préparation de l'environnement
 
-Le module utilisé pour créer et gérer des environnements virtuels s'appelle **venv**.
-
-## Gestion d'un environnement virtuel
-
-1. Création environnment virtuel
-
-    *python -m venv evironment_name*
-
-2. Activation environnement virtuel
+1. Activation environnement virtuel
 
     1. **Windows cmd**
 
@@ -32,4 +25,18 @@ Le module utilisé pour créer et gérer des environnements virtuels s'appelle *
 
         *`source evironment_name/bin/activate`*
 
-Le nom choisi pour l'environnement virtuel dans cet espace est : *advanced-training*
+2. Installation du package mysql-connector-python
+
+    *`pip install mysql-connector-python`*
+
+3. Vérification que votre base de données est bien démarré 
+
+4. Remplacement des caractères "*******" dans le dictionnaire config du fichier common.py 
+
+## Administration de votre SBGD
+
+Deux opérations sont disponibles à date. 
+* Création d'une base de données
+* Création d'une table simple (sans clé-étrangère)
+
+1. Executer le programme principal: *`python database-admin.py`*
