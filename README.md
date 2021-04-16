@@ -16,18 +16,18 @@ Le module utilisé pour créer et gérer des environnements virtuels s'appelle v
 
     1. **Windows cmd**
 
-        `*.\evironment_name\Script\activate.bat*`
+        *`.\evironment_name\Scripts\activate.bat`*
 
     2. **Windows Powershell**
 
-        ` *.\evironment_name\Script\Activate.ps1*`
+        *`.\evironment_name\Scripts\Activate.ps1`*
 
         NB: Powershell bloque par défaut l'execution de scripts. Pour autoriser l'execution des scripts:
             * Executer powershell en tant qu'Administrateur 
-            * Taper puis valider la commande suivante : `*Set-ExecutionPolicy RemoteSigned*`
+            * Taper puis valider la commande suivante : *`Set-ExecutionPolicy RemoteSigned`*
 
     3. **Linux / Mac Terminal**
 
-        `*source evironment_name/bin/activate*`
+        *`source evironment_name/bin/activate`*
 
 Le nom choisi pour l'environnement virtuel dans cet espace est : *advanced-training*
