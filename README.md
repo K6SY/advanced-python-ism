@@ -20,7 +20,7 @@ Le module utilisé pour créer et gérer des environnements virtuels s'appelle v
 
     2. **Windows Powershell**
 
-        *.\\evironment_name\\Script\\Activate.ps1*
+        `<addr>` *.\\evironment_name\\Script\\Activate.ps1*
 
         NB: Powershell bloque par défaut l'execution de scripts. Pour autoriser l'execution des scripts:
             * Executer powershell en tant qu'Administrateur 
