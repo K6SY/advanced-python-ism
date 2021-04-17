@@ -3,8 +3,8 @@ from mysql.connector import connect, Error, errorcode
 
 #Création d'un dictionnaire contenant la configuration de la base de données mysql
 config = {
-  'user': '******',
-  'password': '******',
+  'user': 'smc',
+  'password': 'sco2019',
   'host': '127.0.0.1',
   'database': None,
   'raise_on_warnings': True
