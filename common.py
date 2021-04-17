@@ -1,14 +1,7 @@
 #Importation des fonctions utiles du module mysql-connector-python
 from mysql.connector import connect, Error, errorcode
 
-#Création d'un dictionnaire contenant la configuration de la base de données mysql
-config = {
-  'user': 'smc',
-  'password': 'sco2019',
-  'host': '127.0.0.1',
-  'database': None,
-  'raise_on_warnings': True
-}
+from data_structure import *
 
 #Fonction permet d'établir une connexion à votre base de donnée
 def dbConnect(yourconfig):
@@ -150,3 +143,75 @@ def createTable(mydb,yourconfig):
             return false
     else:
         print(f"La base de données {db_name} est inexistante.")
+
+#Cette fonction permt d'insérer des données dans une table
+def genericInsert(mydb):
+    tb_name=input(f"Please enter the table name? Possible values = {structureTable.keys()}\n")
+    if tb_name in structureTable.keys():
+        #Récupération structure table
+        list_field=structureTable.get(tb_name)
+        print()
+        #Récupération nombre de champs
+        nb_param = len(list_field)
+
+        #Définir le nombre de paramètre de la requête
+        list_value="%s,"*nb_param
+
+        #Construction des données
+        data=None
+        for attribut in list_field:
+            tmp=input(f'Enter the value of : {attribut}\t')
+            while True:
+                if not tmp:
+                    print('Please enter a correct value?\t')
+                    tmp=input(f'Enter the value of : {attribut}\t')
+                    
+                else:
+                    break
+            tmp=(tmp,)
+            if data:
+                data+=(tmp)
+            else:
+                data=(tmp)
+        
+        #Création de la requête
+        print(type(list_field))
+        list_field=str(list_field).replace('\'','')
+        list_value=list_value[:len(list_value)-1]
+        sql = f"INSERT INTO {tb_name}{list_field} VALUES ({list_value})"
+        print(sql)
+        print(data[:len(data)])
+        cursor = mydb.cursor()
+        cursor.execute(sql,data)
+        mydb.commit()
+        return True
+    else:
+        print("This table does not exist or it does'nt implemented.")
+        return False
+
+def getAllData(mydb):
+    mycursor=mydb.cursor()
+    myresult=None
+    tb_name=input(f"Please enter the table name? Possible values = {structureTable.keys()}\n")
+    if tb_name in structureTable.keys():
+        sql=f"SELECT * FROM {tb_name}"
+        mycursor.execute(sql)
+        myresult = mycursor.fetchall()
+    print(myresult)
+    return myresult
+
+def getSpecificData(mydb):
+    mycursor=mydb.cursor()
+    tb_name=input(f"Please enter the table name? Possible values = {structureTable.keys()}\n")
+    if tb_name in structureTable.keys():
+        field=input("Enter the field name?\n")
+        value=input("Enter the value you're searching?\n")
+        sql=f"SELECT * FROM {tb_name} WHERE {field} like '{value}'"
+        mycursor.execute(sql)
+        myresult = mycursor.fetchone()
+        return myresult
+
+
+
+
+
