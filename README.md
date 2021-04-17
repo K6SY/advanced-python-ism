@@ -4,7 +4,7 @@ L'objectif est de voir comment se conecter à une base de données et d'effectue
 
 * Le fichier **common.py** est un module contenant des fonctions permettant de faire des opérations sur une base mysql
 * Le fichier **database-admin.py** est le programme principal à exécuter pour manager votre database
-* Le fichier **database-admin.py** est le programme principal à exécuter pour l'exploitation votre database
+* Le fichier **database-use.py** est le programme principal à exécuter pour l'exploitation votre database
 
 ## Préparation de l'environnement
 
