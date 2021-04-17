@@ -1,21 +1,26 @@
 # Gestion d'un SBGD MySQL
 
-L'objectif est de voir comment se conecter à un SGBD Mysql et de créer une base de données et des tables.
+L'objectif est de voir comment se conecter à une base de données et d'effectuer des requêtes (select, insert, delete,update).
 
 * Le fichier **common.py** est un module contenant des fonctions permettant de faire des opérations sur une base mysql
-* Le fichier **database-admin.py** est le programme principal à exécuter pour manager votre database 
+* Le fichier **database-admin.py** est le programme principal à exécuter pour manager votre database
+* Le fichier **database-admin.py** est le programme principal à exécuter pour l'exploitation votre database
 
 ## Préparation de l'environnement
 
-1. Activation environnement virtuel
+1. Recréer l'evironnement virtuel
+
+    *`python -m venv environment_name`*
+
+2. Activation environnement virtuel
 
     1. **Windows cmd**
 
-        *`.\evironment_name\Scripts\activate.bat`*
+        *`.\environment_name\Scripts\activate.bat`*
 
     2. **Windows Powershell**
 
-        *`.\evironment_name\Scripts\Activate.ps1`*
+        *`.\environment_name\Scripts\Activate.ps1`*
 
         NB: Powershell bloque par défaut l'execution de scripts. Pour autoriser l'execution des scripts:
             * Executer powershell en tant qu'Administrateur 
@@ -23,20 +28,28 @@ L'objectif est de voir comment se conecter à un SGBD Mysql et de créer une bas
 
     3. **Linux / Mac Terminal**
 
-        *`source evironment_name/bin/activate`*
+        *`source environment_name/bin/activate`*
 
-2. Installation du package mysql-connector-python
+3. Installation des dépendances
 
-    *`pip install mysql-connector-python`*
+    *`pip install -r requirements.txt`*
 
-3. Vérification que votre base de données est bien démarré 
+4. Vérification que votre base de données est bien démarré 
 
-4. Remplacement des caractères "*******" dans le dictionnaire config du fichier common.py 
+5. Remplacement des caractères "*******" dans le dictionnaire config du fichier common.py 
 
 ## Administration de votre SBGD
+
+Vous pouvez executer les requêtes contenues dans le fichier **eshop.sql** afin de poursuivre.
 
 Deux opérations sont disponibles à date. 
 * Création d'une base de données
 * Création d'une table simple (sans clé-étrangère)
+* Selection de données dans une table
+* Insertion de données dans une table
+* Mise à jour des données dans une table
 
-1. Executer le programme principal: *`python database-admin.py`*
+1. Pour l'administration, Executer le programme principal: *`python database-admin.py`*
+
+1. Pour l'exploitation, Executer le programme principal: *`python database-use.py`*
+
